@@ -1,16 +1,12 @@
 {
-    "name": "novosga/core",
+    "name": "elvisthermiranda/novosga-core",
     "license": "MIT",
     "type": "library",
+    "description": "Fork do novosga/core",
     "autoload": {
         "psr-4": { "Novosga\\": "" }
     },
     "require": {
-        "php": ">=7.2.5"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0-dev"
-        }
+        "php": ">=8.2"
     }
 }

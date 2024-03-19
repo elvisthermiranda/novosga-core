@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Novosga\Repository;
+namespace Novosga\Repository\Contracts;
 
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Persistence\ObjectRepository;

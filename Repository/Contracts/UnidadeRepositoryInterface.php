@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Novosga\Repository;
+namespace Novosga\Repository\Contracts;
 
 use Novosga\Entity\Usuario;
 use Novosga\Entity\Unidade;

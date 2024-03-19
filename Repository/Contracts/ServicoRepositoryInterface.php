@@ -9,15 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Novosga\Repository;
+namespace Novosga\Repository\Contracts;
 
 use Doctrine\Persistence\ObjectRepository;
+use Novosga\Entity\Servico;
 
 /**
- * ClienteRepositoryInterface
+ * ServicoRepositoryInterface
  *
  * @author Rogério Lino <rogeriolino@gmail.com>
  */
-interface ClienteRepositoryInterface extends ObjectRepository
+interface ServicoRepositoryInterface extends ObjectRepository
 {
+    /**
+     * Retorna os subserviços ativos do serviço informado
+     * @param Servico $servico
+     * @return Servico[]
+     */
+    public function getSubservicos(Servico $servico);
 }

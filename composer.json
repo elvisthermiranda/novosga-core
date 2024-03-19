@@ -7,7 +7,7 @@
         "psr-4": { "Novosga\\": "" }
     },
     "require": {
-        "php": ">=8.2"
-    },
-    "version": "1.0.0-dev"
+        "php": ">=8.2",
+        "symfony/framework-bundle": "^7.0.*"
+    }
 }

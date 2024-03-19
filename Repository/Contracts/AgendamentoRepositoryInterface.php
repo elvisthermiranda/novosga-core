@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Novosga\Repository;
+namespace Novosga\Repository\Contracts;
 
 use Doctrine\Persistence\ObjectRepository;
 
 /**
- * LocalRepositoryInterface
+ * AgendamentoRepositoryInterface
  *
  * @author Rogério Lino <rogeriolino@gmail.com>
  */
-interface LocalRepositoryInterface extends ObjectRepository
+interface AgendamentoRepositoryInterface extends ObjectRepository
 {
 }

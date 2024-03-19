@@ -1,119 +1,94 @@
 <?php
 
-/*
- * This file is part of the Novo SGA project.
- *
- * (c) Rogerio Lino <rogeriolino@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace Novosga\Entity;
 
-/**
- * Prioridade
- *
- * @author Rogerio Lino <rogeriolino@gmail.com>
- */
+use Doctrine\ORM\Mapping as ORM;
+use Novosga\Repository\PrioridadeRepository;
+
+#[ORM\Entity(repositoryClass: PrioridadeRepository::class)]
+#[ORM\Table(name: 'prioridades')]
 class Prioridade implements \JsonSerializable
 {
-    /**
-     * @var mixed
-     */
-    protected $id;
-    
-    /**
-     * @var string
-     */
-    private $nome;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
 
-    /**
-     * @var string
-     */
-    private $descricao;
+    #[ORM\Column(type: "string")]
+    private string $nome;
 
-    /**
-     * @var int
-     */
-    private $peso;
+    #[ORM\Column(type: "text")]
+    private string $descricao;
 
-    /**
-     * @var string
-     */
-    private $cor;
+    #[ORM\Column(type: "integer")]
+    private int $peso;
 
-    /**
-     * @var int
-     */
-    private $ativo;
+    #[ORM\Column(type: "string", nullable: true)]
+    private ?string $cor;
 
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
+    #[ORM\Column(type: "boolean")]
+    private bool $ativo;
 
-    /**
-     * @var \DateTime
-     */
-    private $updatedAt;
+    #[ORM\Column(type: "datetime", nullable: true)]
+    private ?\DateTime $createdAt;
 
-    /**
-     * @var \DateTime
-     */
-    private $deletedAt;
+    #[ORM\Column(type: "datetime", nullable: true)]
+    private ?\DateTime $updatedAt;
+
+    #[ORM\Column(type: "datetime", nullable: true)]
+    private ?\DateTime $deletedAt;
 
     public function __construct()
     {
         $this->ativo = true;
     }
-    
-    public function getId()
+
+    public function getId(): mixed
     {
         return $this->id;
     }
 
-    public function setId($id): self
+    public function setId(mixed $id): self
     {
         $this->id = $id;
 
         return $this;
     }
 
-    public function setNome($nome): self
+    public function getNome(): string
+    {
+        return $this->nome;
+    }
+
+    public function setNome(string $nome): self
     {
         $this->nome = $nome;
 
         return $this;
     }
 
-    public function getNome()
+    public function getDescricao(): string
     {
-        return $this->nome;
+        return $this->descricao;
     }
 
-    public function setDescricao($descricao): self
+    public function setDescricao(string $descricao): self
     {
         $this->descricao = $descricao;
 
         return $this;
     }
 
-    public function getDescricao()
+    public function getPeso(): int
     {
-        return $this->descricao;
+        return $this->peso;
     }
 
-    public function setPeso($peso): self
+    public function setPeso(int $peso): self
     {
         $this->peso = $peso;
 
         return $this;
-    }
-
-    public function getPeso()
-    {
-        return $this->peso;
     }
 
     public function isAtivo(): bool
@@ -127,37 +102,37 @@ class Prioridade implements \JsonSerializable
 
         return $this;
     }
-    
-    public function getCreatedAt()
+
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    public function getDeletedAt()
-    {
-        return $this->deletedAt;
-    }
-
-    public function setCreatedAt(\DateTime $createdAt): self
+    public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function setUpdatedAt(\DateTime $updatedAt): self
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
-    public function setDeletedAt(\DateTime $deletedAt): self
+    public function getDeletedAt(): ?\DateTime
+    {
+        return $this->deletedAt;
+    }
+
+    public function setDeletedAt(?\DateTime $deletedAt): self
     {
         $this->deletedAt = $deletedAt;
 
@@ -176,12 +151,12 @@ class Prioridade implements \JsonSerializable
         return $this;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getNome();
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return [
             'id'        => $this->getId(),
